@@ -5,7 +5,14 @@
  */
 package clase6.interfaces;
 
+import clase6.Item;
+import clase6.ManejoArchivos;
 import clase6.Menu;
+import java.awt.List;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+import javax.swing.JComboBox;
 
 /**
  *
@@ -17,14 +24,23 @@ public class Registros extends javax.swing.JFrame {
      * Creates new form Registros
      */
     private Menu menu;
+    private ManejoArchivos archivos;
     public Registros() {
         initComponents();
         menu = new Menu();
+        archivos = new ManejoArchivos();
+        Map<Integer, String> itemsMap = new HashMap<>();
+        itemsMap.put(0, "Item 1");
+        itemsMap.put(1, "Item 2");
+        itemsMap.put(2, "Item 3");
+        itemsMap.put(3, "Item 4");
+        jComboBox2 = new JComboBox<>(itemsMap.values().toArray(new String[0]));
     }
     
     public Registros(Menu menu) {
         initComponents();
         this.menu = menu;
+        archivos = new ManejoArchivos();
     }
 
     /**
@@ -44,6 +60,7 @@ public class Registros extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jTextField3 = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
+        jComboBox2 = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -69,6 +86,12 @@ public class Registros extends javax.swing.JFrame {
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
+            }
+        });
+
+        jComboBox2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox2ActionPerformed(evt);
             }
         });
 
@@ -98,7 +121,10 @@ public class Registros extends javax.swing.JFrame {
                         .addComponent(jLabel1))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(163, 163, 163)
-                        .addComponent(jButton1)))
+                        .addComponent(jButton1))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(74, 74, 74)
+                        .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(96, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -120,7 +146,9 @@ public class Registros extends javax.swing.JFrame {
                     .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(36, 36, 36)
                 .addComponent(jButton1)
-                .addContainerGap(90, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
+                .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(33, 33, 33))
         );
 
         pack();
@@ -134,6 +162,8 @@ public class Registros extends javax.swing.JFrame {
             String nit = jTextField3.getText();
             menu.agregarUsuario(nombre, apellido, nit);
             menu.verUsuarios();
+            archivos.escribirArchivo("clase7.txt", nombre+","+apellido+","+nit+"\n");
+            archivos.escribirTextoBinario("clase7.bin", nombre+","+apellido+","+nit+"\n");
             Cliente cliente = new Cliente(menu);
             cliente.setVisible(true);
             this.setVisible(false);
@@ -141,6 +171,13 @@ public class Registros extends javax.swing.JFrame {
 //            System.err.println(e);
 //        }
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jComboBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox2ActionPerformed
+        int selectedIndex = jComboBox2.getSelectedIndex();
+                String selectedValue = (String) jComboBox2.getSelectedItem();
+                System.out.println("Índice seleccionado: " + selectedIndex);
+                System.out.println("Valor seleccionado: " + selectedValue);
+    }//GEN-LAST:event_jComboBox2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -179,6 +216,7 @@ public class Registros extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
+    private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

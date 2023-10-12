@@ -173,10 +173,10 @@ public class Registros extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jComboBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox2ActionPerformed
-        int selectedIndex = jComboBox2.getSelectedIndex();
-                String selectedValue = (String) jComboBox2.getSelectedItem();
-                System.out.println("Índice seleccionado: " + selectedIndex);
-                System.out.println("Valor seleccionado: " + selectedValue);
+//        int selectedIndex = jComboBox2.getSelectedIndex();
+//                String selectedValue = (String) jComboBox2.getSelectedItem();
+//                System.out.println("Índice seleccionado: " + selectedIndex);
+//                System.out.println("Valor seleccionado: " + selectedValue);
     }//GEN-LAST:event_jComboBox2ActionPerformed
 
     /**

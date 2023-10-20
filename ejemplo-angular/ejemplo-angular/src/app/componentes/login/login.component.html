@@ -1,0 +1,16 @@
+<div class="container">
+  <ng-container >
+    <mat-form-field>
+      <input matInput type="text" name="texto" placeholder="usuario" [(ngModel)]="nombre">
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+      <input matInput type="password" name="password" placeholder="contraseña" [(ngModel)]="pass">
+    </mat-form-field>
+<br>
+    <button mat-button color="primary" type="button" (click)="iniciarSecion()">Iniciar Sesión</button>
+<br>
+    <button mat-button color="primary" type="button" (click)="verNombre()">Registrarse</button>
+  </ng-container>
+</div>
+

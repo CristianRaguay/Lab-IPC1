@@ -10,3 +10,9 @@ export interface RegistrarUSuario{
   mensaje:string
   objeto:usuario
 }
+
+export interface CrearCita{
+  description:string
+  fecha:Date
+  idUsuario:number
+}

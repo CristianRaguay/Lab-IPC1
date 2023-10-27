@@ -6,7 +6,12 @@ class AdminCitas{
     }
 
     verCitas(id){
-        return this.citas.filter((elemet) => elemet.idUser === id)
+        let  userId = parseInt(id)
+        return this.citas.filter((user) => user.idUsuario === userId)
+    }
+
+    verTodo(){
+        return this.citas;
     }
 }
 exports.AdminCitas = AdminCitas

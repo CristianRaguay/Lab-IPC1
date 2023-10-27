@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { LoginComponent } from './componenetes/login/login.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
@@ -13,21 +14,12 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { MatSliderModule } from '@angular/material/slider';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
-import { LoginComponent } from './componentes/login/login.component';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { CookieService } from 'ngx-cookie-service';
-import { RegistrarUsuarioComponent } from './componentes/registrar-usuario/registrar-usuario.component';
-import { PacienteComponent } from './componentes/paciente/paciente.component';
-import { MatTableModule } from '@angular/material/table';
-import { VerCitasComponent } from './componentes/paciente/ver-citas/ver-citas.component';
-
+import { ClienteComponent } from './componenetes/cliente/cliente.component';
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    RegistrarUsuarioComponent,
-    PacienteComponent,
-    VerCitasComponent
+    ClienteComponent
   ],
   imports: [
     BrowserModule,
@@ -42,11 +34,9 @@ import { VerCitasComponent } from './componentes/paciente/ver-citas/ver-citas.co
     MatNativeDateModule,
     MatSliderModule,
     MatInputModule,
-    MatSelectModule,
-    MatFormFieldModule,
-    MatTableModule
+    MatSelectModule
   ],
-  providers: [LoginComponent, CookieService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

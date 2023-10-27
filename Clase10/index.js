@@ -52,7 +52,7 @@ app.post("/crearCita", (req, res)=>{
 })
 
 app.get("/verMisCitas/:id", (req, res)=>{
-    const id = parseInt(req.params.id)
+    const id = req.params.id
     console.log(id)
     res.status(200).json(adminCitas.verCitas(id))
 })

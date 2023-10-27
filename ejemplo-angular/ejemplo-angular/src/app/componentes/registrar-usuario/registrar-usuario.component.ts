@@ -1,6 +1,7 @@
 import { UsuarioService } from './../../servicios/usuario.service';
 import { usuario } from './../../interfaces/usuario';
 import { Component } from '@angular/core';
+import { Route, Router } from '@angular/router';
 
 @Component({
   selector: 'app-registrar-usuario',
@@ -14,7 +15,8 @@ export class RegistrarUsuarioComponent {
   user!:string
   contrasena!:string
 
-  constructor(private usuarioServiuce:UsuarioService){}
+  constructor(private usuarioServiuce:UsuarioService,
+     private router:Router){}
 
   registrar(){
 
@@ -30,6 +32,7 @@ export class RegistrarUsuarioComponent {
     }
     this.usuarioServiuce.registrarUsuario(newUser).subscribe((data)=>{
       console.log(data)
+      this.router.navigate(['/login']);
   })
 }
 }
